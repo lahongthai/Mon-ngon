@@ -8,18 +8,20 @@ import {
     Text,
     TouchableOpacity,
     View,
+    
 } from 'react-native';
 
 
 
 const LoginScreen = () => {
-   
-   
 
     return (
-       <View> 
-        <Text>aaaaaaaaaaaaa</Text>
-       </View>
+
+        <ImageBackground
+            source={{ uri: 'https://img.lovepik.com/background/20211101/medium/lovepik-abstract-background-mobile-phone-wallpaper-image_400624615.jpg' }}
+            style={{ flex: 1,marginTop:StatusBar.currentHeight}}
+        >
+        </ImageBackground>
     );
 };
 

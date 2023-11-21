@@ -1,34 +1,28 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import SCREEN from './RouteKey';
-
-import {StyleSheet} from "react-native";
-import LoginScreen from '../Screens/LoginScreen';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import LoginScreen from "../Screens/LoginScreen";
+import SCREEN from "./RouteKey";
+import BottomTab from "./BottomTab";
 
 const RootNavigator = () => {
-    const Stack = createNativeStackNavigator();
+    const Stack = createNativeStackNavigator()
     return (
+        <NavigationContainer>
             <Stack.Navigator
-                screenOptions={{headerShown: true, navigationBarColor: 'transparent',}}
-                // @ts-ignore
-                initialRouteName={SCREEN.LOGIN_SCREEN}
+                initialRouteName={SCREEN.BOTTOM_TAB}
+                screenOptions={{ headerShown: false, navigationBarColor: 'transparent', }}
             >
                 <Stack.Screen
-                    // @ts-ignore
                     name={SCREEN.LOGIN_SCREEN}
                     component={LoginScreen}
-                    options={{headerShown: false, animation: 'slide_from_left'}}
-                />
-             
-            </Stack.Navigator>
-    );
-};
+                    options={{ headerShown: false }} />
+                <Stack.Screen
+                    name={SCREEN.BOTTOM_TAB}
+                    component={BottomTab} />
 
-export default RootNavigator;
-const styles = StyleSheet.create({
-    text: {
-        fontFamily: 'Roboto-Light'
-    }
-})
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+export default RootNavigator

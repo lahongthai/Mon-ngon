@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const UserScreen = () => {
+const SuggestScreen = () => {
     return (
         <View>
-            <Text>UserScreen</Text>
+            <Text>SuggestScreen</Text>
         </View>
     );
 }
 
-export default UserScreen;
+export default SuggestScreen;
