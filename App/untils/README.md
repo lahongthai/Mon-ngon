@@ -1,0 +1,1 @@
+chứa các logic dùng chung cho toàn app

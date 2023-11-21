@@ -1,0 +1,1 @@
+chua cac su kien chuyen man hinh, key route

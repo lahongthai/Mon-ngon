@@ -1,0 +1,1 @@
+chua cac thu lien quan toi giao dien(mau sac, cac duong dan ảnh, styles)
