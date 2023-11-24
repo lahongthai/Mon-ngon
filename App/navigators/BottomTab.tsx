@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Text, View, Image, Button, Alert, StyleSheet } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ICONS from '../theme/Icons';
 import DisScreen from "../Screens/DisScreen";
 import SuggestScreen from "../Screens/SuggestScreen";
-import ProScreen from "../Screens/ProScreen";
+import CategoryScreen from "../Screens/CategoryScreen";
 import UserScreen from "../Screens/UserScreen";
 import SCREEN from "./RouteKey";
 import {MD3LightTheme as DefaultTheme,Provider as PaperProvider}  from "react-native-paper";
@@ -26,13 +25,11 @@ const BottomTab = () => {
 
   return (
       <PaperProvider theme={theme}>
-          <Tab.Navigator
-          >
+          <Tab.Navigator>
               <Tab.Screen
                   name={SCREEN.HOME_SCREEN}
                   component={DisScreen}
                   options={{
-                      tabBarColor:'red',
                       tabBarLabel:'Khám phá',
                       tabBarIcon: ({ focused }) => (
                           <Image source={focused ? ICONS.iconKhamPhaActive : ICONS.iconKhamPhaInactive} style={styles.icon} />
@@ -44,6 +41,7 @@ const BottomTab = () => {
                   name={SCREEN.SUGGEST_SCREEN}
                   component={SuggestScreen}
                   options={{
+
                       tabBarLabel:'Gợi ý',
                       tabBarIcon: ({ focused }) => (
                           <Image source={focused ? ICONS.iconGoiYActive : ICONS.iconGoiYInactive} style={styles.icon} />
@@ -52,7 +50,7 @@ const BottomTab = () => {
               />
               <Tab.Screen
                   name={SCREEN.CATEGORY_SCREEN}
-                  component={ProScreen}
+                  component={CategoryScreen}
 
                   options={{
                       tabBarLabel:'Chuyên mục',

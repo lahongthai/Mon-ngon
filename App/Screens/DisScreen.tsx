@@ -1,24 +1,15 @@
 import * as React from 'react';
-import {Text, View, Button, Alert} from 'react-native';
+import {Text, View, Button, ScrollView} from 'react-native';
+import FavorList from '../Components/FavorList'
+import AllItems from "../Components/AllItems";
+
 const DisScreen = () => {
   return (
-    <View>
-      <View
-        style={{
-          height: 60,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'green',
-        }}>
-        <Text>Tất cả chuyên mục</Text>
-        <Button
-          title={'Xem tat ca'}
-          onPress={() => {
-          }}
-        />
-      </View>
-    </View>
+    <ScrollView >
+        <FavorList />
+        <AllItems />
+
+    </ScrollView>
   );
 };
 export default DisScreen;
