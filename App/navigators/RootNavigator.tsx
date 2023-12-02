@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "../Screens/LoginScreen";
 import SCREEN from "./RouteKey";
 import BottomTab from "./BottomTab";
+import CategoryDetailScreen from "../Screens/CategoryDetailScreen";
 
 const RootNavigator = () => {
     const Stack = createNativeStackNavigator()
@@ -16,11 +17,16 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name={SCREEN.LOGIN_SCREEN}
                     component={LoginScreen}
-                    options={{ headerShown: false }} />
+                    options={{ headerShown: false }}
+                />
                 <Stack.Screen
                     name={SCREEN.BOTTOM_TAB}
-                    component={BottomTab} />
-
+                    component={BottomTab}
+                />
+                <Stack.Screen
+                    name={SCREEN.CATEGORY_DETAIL_SCREEN}
+                    component={CategoryDetailScreen}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )

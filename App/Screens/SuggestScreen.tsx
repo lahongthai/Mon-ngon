@@ -5,6 +5,10 @@ const SuggestScreen = () => {
     return (
         <View>
             <Text>SuggestScreen</Text>
+            <Text>SuggestScreen</Text>
+            <Text>SuggestScreen</Text>
+            <Text>SuggestScreen</Text>
+            <Text>SuggestScreen</Text>
         </View>
     );
 }

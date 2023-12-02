@@ -4,10 +4,11 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import ICONS from '../theme/Icons';
 import DisScreen from "../Screens/DisScreen";
 import SuggestScreen from "../Screens/SuggestScreen";
-import CategoryScreen from "../Screens/CategoryScreen";
 import UserScreen from "../Screens/UserScreen";
 import SCREEN from "./RouteKey";
 import {MD3LightTheme as DefaultTheme,Provider as PaperProvider}  from "react-native-paper";
+import CategoryDetailScreen from "../Screens/CategoryDetailScreen";
+import CategoryScreen from "../Screens/CategoryScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
