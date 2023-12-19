@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import HeaderGoiY from '../Components/HeaderGoiY';
 
 const SuggestScreen = () => {
   const [categories, setCategories] = useState([]);
@@ -34,9 +35,7 @@ const SuggestScreen = () => {
   };
   return (
     <View>
-      <View style={styles.header}>
-        <Text style={styles.txt}>Gợi ý hôm nay</Text>
-      </View>
+      <HeaderGoiY headerTitle={'Gợi ý hôm nay'} />
       <View>
         <Text style={styles.titleText}>Món Chính</Text>
       </View>

@@ -18,7 +18,15 @@ const ICONS = {
   iconProHeader1: require('../Assets/Icons/ProHeaderIcon1.png'),
   iconProHeader2: require('../Assets/Icons/ProHeaderIcon2.png'),
   iconProHeader3: require('../Assets/Icons/ProHeaderIcon3.png'),
+  iconSearchDiscovery: require('../Assets/Icons/searchIcon.png'),
 
   iconBack: require('../Assets/Icons/left-arrow.png'),
+  // List icons of User
+  iconUser1: require('../Assets/Icons/iconUser1.png'),
+  iconUser2: require('../Assets/Icons/iconUser2.png'),
+  iconUser3: require('../Assets/Icons/iconUser3.png'),
+  iconUser4: require('../Assets/Icons/iconUser4.png'),
+  iconUser5: require('../Assets/Icons/iconUser5.png'),
+  iconUser6: require('../Assets/Icons/iconUser6.png'),
 };
 export default ICONS;

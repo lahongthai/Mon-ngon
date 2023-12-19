@@ -6,6 +6,7 @@ import SCREEN from './RouteKey';
 import BottomTab from './BottomTab';
 import CategoryDetailScreen from '../Screens/CategoryDetailScreen';
 import CategoryScreen from '../Screens/CategoryScreen';
+import FoodDetailScreen from '../Screens/FoodDetailScreen';
 
 const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,10 @@ const RootNavigator = () => {
         <Stack.Screen
           name={SCREEN.CATEGORY_SCREEN}
           component={CategoryScreen}
+        />
+        <Stack.Screen
+          name={SCREEN.FOOD_DETAIL_SCREEN}
+          component={FoodDetailScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

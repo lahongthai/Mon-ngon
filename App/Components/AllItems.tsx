@@ -86,14 +86,13 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     height: 255,
     display: 'flex',
-    // flexDirection:'row'
   },
   button: {
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    backgroundColor: '#1852c7',
+    backgroundColor: '#4aa467',
     paddingHorizontal: 15,
     height: 30,
     alignSelf: 'center',

@@ -29,10 +29,8 @@ const FoodCategories: React.FC<FoodCategories> = props => {
     } catch (err) {
       console.log('lõi categoryId ', err);
     }
-    console.log('product', JSON.stringify(products, null, 2));
   };
 
-  console.log('caaaaa', props.categories);
   useEffect(() => {
     if (props.categories) {
       callAPIProduct(props.categories?.id);
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     borderBottomStartRadius: 20,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    backgroundColor: '#1852c7',
+    backgroundColor: '#4aa467',
     paddingHorizontal: 15,
     height: 30,
     alignSelf: 'center',

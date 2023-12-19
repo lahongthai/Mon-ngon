@@ -7,16 +7,20 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  Platform,
+  ImageBackground,
 } from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import {useRoute, useNavigation} from '@react-navigation/native';
 import {
   ImageHeaderScrollView,
   TriggeringView,
 } from 'react-native-image-header-scroll-view';
 import ICONS from '../theme/Icons';
+import SCREEN from '../navigators/RouteKey';
+import CategoryScreen from './CategoryScreen';
+import categoryScreen from './CategoryScreen';
 
 const CategoryDetailScreen = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   // @ts-ignore
   const {data} = route?.params;
@@ -36,13 +40,14 @@ const CategoryDetailScreen = () => {
   useEffect(() => {
     callApiProductOfCategory(data.id);
   }, []);
-  console.log('vvv', productsOfCategory);
+  const foodDetail = item => {
+    navigation.navigate(SCREEN.FOOD_DETAIL_SCREEN, {
+      data: item,
+    });
+  };
   const renderCategoryItem = ({item}) => {
-    console.log('iii', JSON.stringify(item, null, 2));
     return (
-      <TouchableOpacity
-        onPress={() => detailCategory(item)}
-        style={styles.item}>
+      <TouchableOpacity onPress={() => foodDetail(item)} style={styles.item}>
         <Image
           style={styles.img}
           source={{uri: item.imageProduct[0].urlImage}}
@@ -53,22 +58,29 @@ const CategoryDetailScreen = () => {
   };
 
   // Inside of a component's render() method:
-  const MIN_HEIGHT = Platform.OS === 'ios' ? 90 : 55;
+  const MIN_HEIGHT = 70;
 
   return (
     <View style={styles.container}>
       <ImageHeaderScrollView
+        // horizontal={true}
         maxHeight={200}
         minHeight={MIN_HEIGHT}
-        headerImage={require('../Assets/firstscr.png')}
-        renderForeground={() => (
+        minOverlayOpacity={0}
+        maxOverlayOpacity={0}
+        renderHeader={() => (
+          <ImageBackground
+            style={{flex: 1, paddingTop: StatusBar.currentHeight || 0}}
+            source={require('../Assets/firstscr.png')}></ImageBackground>
+        )}
+        renderFixedForeground={() => (
           <View
             style={{
-              height: 150,
+              height: 50,
               justifyContent: 'center',
               // alignItems: 'center',
             }}>
-            <TouchableOpacity onPress={() => console.log('tap!!')}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <Image style={styles.icBack} source={ICONS.iconBack} />
             </TouchableOpacity>
           </View>
@@ -77,6 +89,7 @@ const CategoryDetailScreen = () => {
           <TriggeringView onHide={() => console.log('text hidden')}>
             <FlatList
               data={productsOfCategory}
+              disableVirtualization={true}
               renderItem={item => renderCategoryItem(item)}
               style={styles.Flist}
               // key={numColumns.toString()}
@@ -92,14 +105,12 @@ const CategoryDetailScreen = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || 0,
     flex: 1,
   },
   Flist: {
     flexWrap: 'wrap',
     // height: 255,
     display: 'flex',
-    // flexDirection:'row'
   },
   item: {
     margin: 10,
@@ -116,10 +127,10 @@ const styles = StyleSheet.create({
     height: 150,
   },
   icBack: {
-    position: 'absolute',
-    width: 30,
-    height: 30,
-    // marginLeft: 30,
+    width: 20,
+    height: 20,
+    marginLeft: 30,
+    marginTop: 30,
   },
 });
 export default CategoryDetailScreen;

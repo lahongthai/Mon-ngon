@@ -11,22 +11,19 @@ import AllItems from '../Components/AllItems';
 import FoodCategories from '../Components/FoodCategories';
 import {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import reducers from '../Src/Reducers/reduces';
+import HeaderSearch from '../Components/HeaderSearch';
 
-const store = createStore(reducers);
-class Searching extends React.Component {
-  render() {
-    return (
-      <View>
-        <TouchableOpacity>
-          <Text style={styles.btText}>Tìm kiếm món ăn </Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+// class Searching extends React.Component {
+//   render() {
+//     return (
+//       <View>
+//         <TouchableOpacity>
+//           <Text style={styles.btText}>Tìm kiếm món ăn </Text>
+//         </TouchableOpacity>
+//       </View>
+//     );
+//   }
+// }
 
 const DiscoveScreen = () => {
   const navigation = useNavigation();
@@ -58,9 +55,12 @@ const DiscoveScreen = () => {
   };
 
   return (
-    <Provider store={store}>
+    <View>
+      <View>
+        <HeaderSearch />
+      </View>
+
       <ScrollView>
-        <Searching />
         <FavorList />
         <AllItems categories={categories} />
         {categories &&
@@ -68,7 +68,7 @@ const DiscoveScreen = () => {
             <FoodCategories categories={item} key={item?.nameCategory} />
           ))}
       </ScrollView>
-    </Provider>
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -77,11 +77,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: 10,
   },
-  // Flist: {
-  //     flexWrap:'wrap',
-  //     height: 236,
-
-  // },
   button: {
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20,
