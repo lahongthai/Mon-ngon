@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Text, View, Image, Button, Alert, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import ICONS from '../theme/Icons';
-import DiscoveScreen from '../Screens/DiscoveScreen';
+import DiscoveryScreen from '../Screens/DiscoveryScreen';
 import SuggestScreen from '../Screens/SuggestScreen';
 import UserScreen from '../Screens/UserScreen';
 import SCREEN from './RouteKey';
@@ -10,7 +10,6 @@ import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
-import CategoryDetailScreen from '../Screens/CategoryDetailScreen';
 import CategoryScreen from '../Screens/CategoryScreen';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -29,10 +28,10 @@ const BottomTab = () => {
 
   return (
     <PaperProvider theme={theme}>
-      <Tab.Navigator>
+      <Tab.Navigator initialRouteName="Khám phá">
         <Tab.Screen
           name={SCREEN.HOME_SCREEN}
-          component={DiscoveScreen}
+          component={DiscoveryScreen}
           options={{
             tabBarLabel: 'Khám phá',
             tabBarIcon: ({focused}) => (

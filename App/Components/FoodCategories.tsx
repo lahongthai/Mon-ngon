@@ -10,8 +10,9 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import SCREEN from '../navigators/RouteKey';
+import FoodDetailScreen from '../Screens/FoodDetailScreen';
 
 interface FoodCategories {
   categories: object;
@@ -46,18 +47,22 @@ const FoodCategories: React.FC<FoodCategories> = props => {
   //         console.log('rdid',(i.id))  }
   // };
   const navigation = useNavigation();
+  const route = useRoute();
+
   const showFoodList = () => {
     // @ts-ignore
-    navigation.navigate(SCREEN.CATEGORY_SCREEN, {
-      paramAbc: 'item',
-      paramXyz: 'categories',
+    navigation.navigate(SCREEN.CATEGORY_DETAIL_SCREEN, {
+      data: props.categories,
     });
   };
 
   const title = (item: any) => {
+    const gotoFoodDetailScreen = (item: any) => {
+      navigation.navigate(SCREEN.FOOD_DETAIL_SCREEN);
+    };
     return (
       <View style={styles.item}>
-        <TouchableOpacity onPress={() => detailCategory(item)}>
+        <TouchableOpacity onPress={() => gotoFoodDetailScreen(item)}>
           <Image
             style={styles.img}
             source={{uri: item.imageProduct[0].urlImage}}

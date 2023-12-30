@@ -25,7 +25,7 @@ import HeaderSearch from '../Components/HeaderSearch';
 //   }
 // }
 
-const DiscoveScreen = () => {
+const DiscoveryScreen = () => {
   const navigation = useNavigation();
   const [categories, setCategories] = useState([]);
 
@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-export default DiscoveScreen;
+export default DiscoveryScreen;

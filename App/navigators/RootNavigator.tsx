@@ -7,6 +7,7 @@ import BottomTab from './BottomTab';
 import CategoryDetailScreen from '../Screens/CategoryDetailScreen';
 import CategoryScreen from '../Screens/CategoryScreen';
 import FoodDetailScreen from '../Screens/FoodDetailScreen';
+import SearchScreen from '../Screens/SearchScreen';
 
 const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -33,6 +34,7 @@ const RootNavigator = () => {
           name={SCREEN.FOOD_DETAIL_SCREEN}
           component={FoodDetailScreen}
         />
+        <Stack.Screen name={SCREEN.SEARCH_SCREEN} component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

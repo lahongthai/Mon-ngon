@@ -8,13 +8,20 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import ICONS from '../theme/Icons';
+import SearchScreen from '../Screens/SearchScreen';
+import {useNavigation} from '@react-navigation/native';
+import SCREEN from '../navigators/RouteKey';
 
 const HeaderUser = props => {
+  const navigation = useNavigation();
+  const SearchingScreen = () => {
+    navigation.navigate(SCREEN.SEARCH_SCREEN);
+  };
   return (
     <View style={styles.bgHeader}>
       <StatusBar translucent backgroundColor="transparent" />
       <Text style={styles.headerStyle}>{props.headerTitle}</Text>
-      <TouchableOpacity style={styles.searchIcon}>
+      <TouchableOpacity style={styles.searchIcon} onPress={SearchingScreen}>
         <Image style={styles.icon} source={ICONS.iconProHeader3} />
       </TouchableOpacity>
     </View>

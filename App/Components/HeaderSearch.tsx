@@ -8,14 +8,20 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import ICONS from '../theme/Icons';
+import {useNavigation} from '@react-navigation/native';
+import SCREEN from '../navigators/RouteKey';
 
 const HeaderSearch = () => {
+  const navigation = useNavigation();
+  const SearchingScreen = () => {
+    navigation.navigate(SCREEN.SEARCH_SCREEN);
+  };
   return (
     <View style={styles.bgHeader}>
       <StatusBar translucent backgroundColor="transparent" />
-      <TouchableOpacity style={styles.SearchHeader}>
+      <TouchableOpacity style={styles.SearchHeader} onPress={SearchingScreen}>
         <Image style={styles.search} source={ICONS.iconSearchDiscovery}></Image>
-        <Text style={styles.headerStyle}>{'Tìm kiếm các món ăn'}</Text>
+        <Text style={styles.headerStyle}>{'Tìm kiếm các món ăn '}</Text>
       </TouchableOpacity>
     </View>
   );

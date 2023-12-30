@@ -26,10 +26,10 @@ const CategoryScreen = () => {
       );
       const json = await response.json();
       setProducts(json);
+      console.log('productmoi', JSON.stringify(products, null, 2));
     } catch (err) {
       console.log('lõi categoryId ', err);
     }
-    console.log('productmoi', JSON.stringify(products, null, 2));
   };
   useEffect(() => {
     if (categories) {
@@ -78,6 +78,9 @@ const CategoryScreen = () => {
       setNumColumns(2);
     }
   };
+  const SearchingScreen = () => {
+    navigation.navigate(SCREEN.SEARCH_SCREEN);
+  };
   return (
     <View style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />
@@ -92,7 +95,7 @@ const CategoryScreen = () => {
               }
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={SearchingScreen}>
             <Image style={styles.icon} source={ICONS.iconProHeader3} />
           </TouchableOpacity>
         </View>
@@ -129,9 +132,10 @@ const styles = StyleSheet.create({
     fontSize: 25,
     paddingLeft: 30,
     fontWeight: 'bold',
+    marginTop: 10,
   },
   icon: {
-    marginBottom: 15,
+    // marginBottom: 5,
     width: 25,
     height: 25,
   },

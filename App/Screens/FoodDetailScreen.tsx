@@ -9,6 +9,9 @@ const FoodDetailScreen = () => {
   const route = useRoute();
   const {data} = route.params;
   console.log('param', JSON.stringify(data, null, 2));
+  const SearchingScreen = () => {
+    navigation.navigate(SCREEN.SEARCH_SCREEN);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -17,7 +20,7 @@ const FoodDetailScreen = () => {
         </TouchableOpacity>
         <Text style={styles.txt}>{data.nameProduct}</Text>
         <View style={styles.headerL}>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.SearchIcon} onPress={SearchingScreen}>
             <Image style={styles.icon} source={ICONS.iconProHeader3} />
           </TouchableOpacity>
         </View>
@@ -27,8 +30,12 @@ const FoodDetailScreen = () => {
         <View key={item.id + ''}>
           <Text>{item.name}</Text>
           <Text style={styles.txt2}>{item.ingredient.name}:</Text>
-          {/*<Text style={styles.txt2}>{item.ingredient.detail}:</Text>*/}
-          {/*for i of {item.ingredient.detail} {}*/}
+          {item.ingredient.detail.map((itemdetail, index) => {
+            console.log('detail', itemdetail);
+            const key = Object.keys(itemdetail)[0];
+            const value = itemdetail[key];
+            return <Text>{index + ': ' + value}</Text>;
+          })}
         </View>
       ))}
     </View>
@@ -73,6 +80,9 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginTop: 30,
     // marginLeft: 30,
+  },
+  SearchIcon: {
+    marginBottom: -35,
   },
 });
 export default FoodDetailScreen;
